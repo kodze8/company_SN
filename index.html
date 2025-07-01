@@ -170,39 +170,30 @@ input, select, button {
     <h1>Generate Information for the Company</h1>
     <form id="pdfForm">
     <select id="company_name">
-        <option value="company_1.pdf">Company 1</option>
-        <option value="company_2.pdf">Company 2</option>
-        <option value="company_3.pdf">Company 3</option>
-        <option value="company_4.pdf">Company 4</option>
+        <option value="company_1.pdf">Freudenberg Sealing Technologies</option>
+        <option value="company_2.pdf">Siemens Healthineers AG</option>
+        <option value="company_3.pdf">ANDREAS STIHL AG & Co. KG</option>
     </select>
     <input type="submit" value="Open PDF">
     </form>
 
 </div>
 <script>
-//   document.getElementById('pdfForm').addEventListener('submit', function(e) {
-//     e.preventDefault();
-//     const select = document.getElementById('company_name');
-//     const pdfFile = select.value;  // e.g. "company_1.pdf"
-//     const pdfPath = `./companies/${pdfFile}`;
-//     console.log("Opening PDF:", pdfPath);
-//     window.open(pdfPath, '_blank');
-//   });
-document.getElementById('pdfForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const select = document.getElementById('company_name');
-//   const pdfFile = select.value;  // e.g. 
-   const pdfFile =  "company_1.pdf";
- 
-  const pdfPath = `./companies/${pdfFile}`;
-  console.log("Downloading PDF:", pdfPath);
+    document.getElementById('pdfForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const select = document.getElementById('company_name');
+    const pdfFile = select.value;  // e.g. 
 
-  const a = document.createElement('a');
-  a.href = pdfPath;
-  a.download = pdfFile; // This suggests download filename
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
+    
+    const pdfPath = `./companies/${pdfFile}`;
+    console.log("Downloading PDF:", pdfPath);
+
+    const a = document.createElement('a');
+    a.href = pdfPath;
+    a.download = pdfFile; // This suggests download filename
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
 });
 </script>
 </body>
