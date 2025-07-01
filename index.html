@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Company Info Generator</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #052F40;
+            margin: 0;
+            padding: 0;
+            color: #2e3a59;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 30px 25px;
+            background-color: #ECFDFB;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e0e0e0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #43A735; /* ServiceNow green */
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+/* <!--        input[type="text"] {-->
+<!--            width: 85%;-->
+<!--            padding: 12px 15px;-->
+<!--            margin-bottom: 20px;-->
+<!--            border-radius: 8px;-->
+<!--            border: 1px solid #c0c9d0;-->
+<!--            font-size: 16px;-->
+<!--            background-color: #f8fafb;-->
+<!--            transition: border-color 0.3s;-->
+<!--        }-->
+
+<!--        input[type="text"]:focus {-->
+<!--            outline: none;-->
+<!--            border-color: #4caf50;-->
+<!--            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15);-->
+<!--        }--> */
+
+        input[type="submit"] {
+            padding: 12px 30px;
+            background-color: #4caf50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+        select {
+    width: 85%; /* match input text width */
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #c0c9d0;
+    font-size: 16px;
+    background-color: #f8fafb;
+    transition: border-color 0.3s;
+    -webkit-appearance: none; /* remove default arrow on some browsers */
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+select:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15);
+}
+
+/* Optional: Add a custom dropdown arrow */
+select {
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3csvg%20width%3d%2210%22%20height%3d%227%22%20viewBox%3d%220%200%2010%207%22%20fill%3d%22none%22%20xmlns%3d%22http%3a//www.w3.org/2000/svg%22%3e%3cpath%20d%3d%22M0%200L5%207L10%200H0Z%22%20fill%3d%22%234caf50%22/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 10px 7px;
+}
+        /* Make sure container fits smaller screens well */
+.container {
+    max-width: 600px;
+    width: 90vw; /* Responsive width */
+    margin: 60px auto;
+    padding: 30px 20px; /* a bit less horizontal padding */
+    background-color: #ECFDFB;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e0e0;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+/* For form inputs and select, set max-width 100% to avoid overflow */
+select, input[type="submit"] {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* You commented out the text input styles; for mobile, it's good to keep them */
+
+input[type="text"], select {
+    width: 100%; /* full width on mobile */
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #c0c9d0;
+    font-size: 16px;
+    background-color: #f8fafb;
+    transition: border-color 0.3s;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+input[type="text"]:focus, select:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15);
+}
+
+/* Increase hit area on the submit button for touch devices */
+input[type="submit"] {
+    padding: 14px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Fix for iOS Safari select dropdown arrow */
+select {
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3csvg%20width%3d%2210%22%20height%3d%227%22%20viewBox%3d%220%200%2010%207%22%20fill%3d%22none%22%20xmlns%3d%22http%3a//www.w3.org/2000/svg%22%3e%3cpath%20d%3d%22M0%200L5%207L10%200H0Z%22%20fill%3d%22%234caf50%22/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 10px 7px;
+    padding-right: 40px; /* add padding to not overlap arrow */
+}
+
+/* Optional: prevent zoom on input focus on iOS by setting font size >=16px */
+input, select, button {
+    font-size: 16px;
+}
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Generate Information for the Company</h1>
+    <form id="pdfForm">
+    <select id="company_name">
+        <option value="company_1.pdf">Company 1</option>
+        <option value="company_2.pdf">Company 2</option>
+        <option value="company_3.pdf">Company 3</option>
+        <option value="company_4.pdf">Company 4</option>
+    </select>
+    <input type="submit" value="Open PDF">
+    </form>
+
+</div>
+<script>
+//   document.getElementById('pdfForm').addEventListener('submit', function(e) {
+//     e.preventDefault();
+//     const select = document.getElementById('company_name');
+//     const pdfFile = select.value;  // e.g. "company_1.pdf"
+//     const pdfPath = `./companies/${pdfFile}`;
+//     console.log("Opening PDF:", pdfPath);
+//     window.open(pdfPath, '_blank');
+//   });
+document.getElementById('pdfForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const select = document.getElementById('company_name');
+  const pdfFile = select.value;  // e.g. "company_1.pdf"
+  const pdfPath = `./companies/${pdfFile}`;
+  console.log("Downloading PDF:", pdfPath);
+
+  const a = document.createElement('a');
+  a.href = pdfPath;
+  a.download = pdfFile; // This suggests download filename
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+});
+</script>
+</body>
+</html>
