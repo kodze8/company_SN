@@ -191,7 +191,9 @@ input, select, button {
 document.getElementById('pdfForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const select = document.getElementById('company_name');
-  const pdfFile = select.value;  // e.g. "company_1.pdf"
+//   const pdfFile = select.value;  // e.g. 
+   const pdfFile =  "company_1.pdf";
+ 
   const pdfPath = `./companies/${pdfFile}`;
   console.log("Downloading PDF:", pdfPath);
 
